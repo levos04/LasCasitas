@@ -87,15 +87,12 @@ CONSTRAINT ID_Agente FOREIGN KEY (ID_Agente) references Agente(ID_Agente)
 CREATE Table Ventas (
  ID_Venta INT IDENTITY(1,1) PRIMARY KEY,
  Fecha_Venta DATE NOT NULL,
-    ID_Aval int,
-    CONSTRAINT ID_Aval FOREIGN KEY (ID_Aval) references Aval (ID_Aval)
-    comision_venta DECIMAL(5, 2) NOT NULL,
-    ID_Cliente int,
-    CONSTRAINT ID_Cliente FOREIGN KEY (ID_Cliente) references Cliente (ID_Cliente)
-    ID_Agente int,
-    CONSTRAINT ID_Agente FOREIGN KEY (ID_Agente) references Agente (ID_Agente)
-    ID_Inmueble int,
-    CONSTRAINT ID_Inmueble FOREIGN KEY (ID_Inmueble) references Inmueble (ID_Inmueble)
+ ID_Aval int,
+ comision_venta DECIMAL(5, 2) NOT NULL,
+ ID_Cliente int,
+ ID_Agente int,
+ ID_Inmueble int,
+ Precio int, NOT NULL,
 );
 
 
