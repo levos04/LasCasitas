@@ -2,30 +2,30 @@ Create database InmobiliariaLasCasitas
 
 Create table Cliente(
 	ID_Cliente INT identity primary key,
-	Nombre_Cliente Varchar (50),
-	Apellido_Cliente Varchar (50),
-	Telefono varchar (10),
-	Correo Varchar (50),
-	Direccion varchar (50)
-)
+	Nombre_Cliente Varchar (50) NOT NULL,
+	Apellido_Cliente Varchar (50) NOT NULL,
+	Telefono varchar (10) NOT NULL,
+	Correo Varchar (50) NOT NULL,
+	Direccion varchar (50) NOT NULL,
+);
 
 Create table Agente(
 	ID_Agente INT identity primary key,
-	Nombre_Agente varchar (50),
-	Apellido_Cliente varchar (50),
-	Telefono varchar (10),
-	Correo varchar (50),
-	Direccion varchar (50),
-	Area_asignada varchar (30),
-	Monto_base_salarial decimal (10,2),
-	Impuestos decimal (10,2),
-	Comision decimal (10,2),
-	Bonos decimal (10,2)
-)
+	Nombre_Agente varchar (50) NOT NULL,
+	Apellido_Cliente varchar (50) NOT NULL,
+	Telefono varchar (10) NOT NULL,
+	Correo varchar (50) NOT NULL,
+	Direccion varchar (50) NOT NULL,
+	Area_asignada varchar (30) NOT NULL,
+	Monto_base_salarial decimal (10,2) NOT NULL,
+	Impuestos decimal (10,2) NOT NULL,
+	Comision decimal (10,2) NOT NULL,
+	Bonos decimal (10,2) NOT NULL,
+);
 
 CREATE TABLE Inmueble (
     ID_Inmueble INT IDENTITY(1,1) PRIMARY KEY,
-    tipo_inmueble Varchar(50),
+    tipo_inmueble Varchar(50) NOT NULL,
     tamanio Varchar(50),
     cantidad_cuartos INT NOT NULL,
     cantidad_banos INT NOT NULL,
@@ -33,7 +33,7 @@ CREATE TABLE Inmueble (
     comedor BIT NOT NULL,
     lavado BIT NOT NULL,
     otros VARCHAR(200),
-    terreno DECIMAL(10, 2),
+    terreno DECIMAL(10, 2) NOT NULL,
     construccion DECIMAL(10, 2),
     antiguedad INT NOT NULL,
     uso Varchar(50),
@@ -44,19 +44,20 @@ CREATE TABLE Inmueble (
     privada BIT NOT NULL,
     descripcion TEXT,
     ubicacion VARCHAR(200) NOT NULL,
-    promovido_por VARCHAR(200) NOT NULL
+    promovido_inmobilirias VARCHAR(200) NOT NULL
 );
 
 CREATE TABLE Contrato (
     ID_Contrato INT IDENTITY(1,1) PRIMARY KEY,
-    tipo Varchar(50),
+    tipo Varchar(50) NOT NULL,
     monto DECIMAL(10, 2) NOT NULL,
     tipo_identificacion VARCHAR(50) NOT NULL,
-    deposito DECIMAL(10, 2),
+    deposito DECIMAL(10, 2) NOT NULL,
     tiempo Varchar(50),
-    aval VARCHAR(100),
-    comision_venta DECIMAL(5, 2),
-    tiempo_estimado_venta VARCHAR(50),
+    tiempo_estimado_venta VARCHAR(50) NOT NULL,
+    ID_Aval int,
+    CONSTRAINT ID_Aval FOREIGN KEY (ID_Aval) references Aval (ID_Aval)
+    comision_venta DECIMAL(5, 2) NOT NULL,
     ID_Cliente int,
     CONSTRAINT ID_Cliente FOREIGN KEY (ID_Cliente) references Cliente (ID_Cliente)
     ID_Agente int,
@@ -67,28 +68,34 @@ CREATE TABLE Contrato (
 
 CREATE TABLE Aval (
  ID_Aval INT IDENTITY(1,1) PRIMARY KEY,
- Nombre_Aval Varchar(100),
- Apellid_Aval Varchar(100),
- Telefono Varchar(10),
- Correo Varchar (50),
- Direccion varchar (50),
+ Nombre_Aval Varchar(100) NOT NULL, 
+ Apellido_Aval Varchar(100) NOT NULL,
+ Telefono Varchar(10) NOT NULL,
+ Correo Varchar (50) NOT NULL,
+ Direccion varchar (50) NOT NULL,
  ID_Cliente int,
  CONSTRAINT ID_Cliente FOREIGN KEY (ID_Cliente) references Cliente (ID_Cliente)
 );
 
 CREATE Table Secciones (
 ID_Seccion INT IDENTITY (1,1) PRIMARY KEY,
-Nombre_Seccion Varchar(100),
+Nombre_Seccion Varchar(100) NOT NULL,
 ID_Agente INT,
 CONSTRAINT ID_Agente FOREIGN KEY (ID_Agente) references Agente(ID_Agente)
 );	
 
 CREATE Table Ventas (
  ID_Venta INT IDENTITY(1,1) PRIMARY KEY,
- Fecha_Venta DATE,
- ID_Inmueble INT,
- ID_Cliente INT,
- ID_Agente INT,
+ Fecha_Venta DATE NOT NULL,
+    ID_Aval int,
+    CONSTRAINT ID_Aval FOREIGN KEY (ID_Aval) references Aval (ID_Aval)
+    comision_venta DECIMAL(5, 2) NOT NULL,
+    ID_Cliente int,
+    CONSTRAINT ID_Cliente FOREIGN KEY (ID_Cliente) references Cliente (ID_Cliente)
+    ID_Agente int,
+    CONSTRAINT ID_Agente FOREIGN KEY (ID_Agente) references Agente (ID_Agente)
+    ID_Inmueble int,
+    CONSTRAINT ID_Inmueble FOREIGN KEY (ID_Inmueble) references Inmueble (ID_Inmueble)
 );
 
 
