@@ -65,9 +65,9 @@ CREATE TABLE Aval (
  Apellid_Aval Varchar(100),
  Telefono Varchar(10),
  Correo Varchar (50),
- Direccion varchar (50)
+ Direccion varchar (50),
  ID_Cliente int,
- CONSTRAINT FOREIGN KEY (ID_Cliente) from Cliente(ID_Cliente)
+ CONSTRAINT ID_Cliente FOREIGN KEY (ID_Cliente) references Cliente (ID_Cliente)
 );
 
 CREATE Table Secciones (
