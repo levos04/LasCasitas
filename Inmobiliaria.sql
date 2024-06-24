@@ -45,8 +45,8 @@ CREATE TABLE Inmueble (
     descripcion TEXT,
     ubicacion VARCHAR(200) NOT NULL,
     promovido_inmobilirias VARCHAR(200) NOT NULL,
-    precio_venta decimal (10,2) varchar,
-    precio_renta decimal(10,2) varchar
+    precio_venta decimal (10,2),
+    precio_renta decimal(10,2)
 );
 
 CREATE TABLE Contrato (
