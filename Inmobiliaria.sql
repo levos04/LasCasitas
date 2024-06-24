@@ -44,7 +44,8 @@ CREATE TABLE Inmueble (
     privada BIT NOT NULL,
     descripcion TEXT,
     ubicacion VARCHAR(200) NOT NULL,
-    promovido_inmobilirias VARCHAR(200) NOT NULL
+    promovido_inmobilirias VARCHAR(200) NOT NULL,
+    precio decimal (10,2) NOT NULL,
 );
 
 CREATE TABLE Contrato (
