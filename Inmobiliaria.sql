@@ -6,7 +6,7 @@ Create table Cliente(
 	Apellido_Cliente Varchar (50) NOT NULL,
 	Telefono varchar (10) NOT NULL,
 	Correo Varchar (50) NOT NULL,
-	Direccion varchar (50) NOT NULL,
+	Direccion varchar (50) NOT NULL
 );
 
 Create table Agente(
@@ -20,7 +20,7 @@ Create table Agente(
 	Monto_base_salarial decimal (10,2) NOT NULL,
 	Impuestos decimal (10,2) NOT NULL,
 	Comision decimal (10,2) NOT NULL,
-	Bonos decimal (10,2) NOT NULL,
+	Bonos decimal (10,2) NOT NULL
 );
 
 CREATE TABLE Inmueble (
@@ -45,7 +45,7 @@ CREATE TABLE Inmueble (
     descripcion TEXT,
     ubicacion VARCHAR(200) NOT NULL,
     promovido_inmobilirias VARCHAR(200) NOT NULL,
-    precio decimal (10,2) NOT NULL,
+    precio varchar
 );
 
 CREATE TABLE Contrato (
@@ -93,7 +93,7 @@ CREATE Table Ventas (
  ID_Cliente int,
  ID_Agente int,
  ID_Inmueble int,
- Precio int, NOT NULL,
+ Precio int NOT NULL
 );
 
 
