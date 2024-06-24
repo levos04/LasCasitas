@@ -56,7 +56,13 @@ CREATE TABLE Contrato (
     tiempo Varchar(50),
     aval VARCHAR(100),
     comision_venta DECIMAL(5, 2),
-    tiempo_estimado_venta VARCHAR(50)
+    tiempo_estimado_venta VARCHAR(50),
+    ID_Cliente int,
+    CONSTRAINT ID_Cliente FOREIGN KEY (ID_Cliente) references Cliente (ID_Cliente)
+    ID_Agente int,
+    CONSTRAINT ID_Agente FOREIGN KEY (ID_Agente) references Agente (ID_Agente)
+    ID_Inmueble int,
+    CONSTRAINT ID_Inmueble FOREIGN KEY (ID_Inmueble) references Inmueble (ID_Inmueble)
 );
 
 CREATE TABLE Aval (
