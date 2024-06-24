@@ -1,0 +1,162 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Tus estilos personalizados */
+.bg-gradient {
+    background: linear-gradient(145deg, #1e3a8a, #5C97C1, #1b1753);
+}
+
+.login-container {
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+.login-wrapper {
+    display: flex;
+    width: 90%;
+    max-width: 1200px;
+    height: 80vh;
+    border-radius: 8px;
+    overflow: hidden; /* Para que el gradiente no se salga del contenedor */
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+.welcome-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2rem;
+    color: white;
+    background: linear-gradient(145deg, #4c6cc3, #1b1753);
+}
+.login-section {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.532);
+}
+
+.welcome-section {
+    position: relative;
+    text-align: center;
+    padding-top: 3rem;
+}
+
+.playwrite-pl-Playwrite {
+    font-family: "Playwrite PL", cursive;
+    font-optical-sizing: auto;
+    font-weight: 150;
+    font-style: normal;
+  }
+  
+.playwrite-pl-Poppins {
+    font-family: "Playwrite PL", cursive;
+    font-optical-sizing: auto;
+    font-weight: 120;
+    font-style: normal;
+  }
+
+  .eb-garamond-Garamond {
+    font-family: "EB Garamond", serif;
+    font-optical-sizing: auto;
+    font-weight: 110;
+    font-style: normal;
+  }
+  
+  .playfair-display-playfair {
+    font-family: "Playfair Display", serif;
+    font-optical-sizing: auto;
+    font-weight: 110;
+    font-style: normal;
+  }
+  
+  .nanum-gothic-coding-regular {
+    font-family: "Segoe UI", "Nanum Gothic Coding", monospace;
+    font-weight: 400;
+    font-style: normal;
+  }
+
+    .responsive-video {
+      padding-bottom: 56.25%;
+      height: 0;
+      overflow: hidden;
+    }
+
+    .hidden { display: none; }
+    .block { display: block; }
+
+        /* Añadir algunos estilos adicionales */
+        .nav-link span {
+          opacity: 0;
+          transition: opacity 0.3s ease-in-out;
+          -webkit-transition: opacity 0.3s ease-in-out;
+          -moz-transition: opacity 0.3s ease-in-out;
+          -ms-transition: opacity 0.3s ease-in-out;
+          -o-transition: opacity 0.3s ease-in-out;
+}
+      
+      .nav-link:hover span {
+          opacity: 1;
+      }
+      
+      .nav-collapsed .nav-link span {
+          display: none; /* Oculta el span dentro de .nav-link cuando el sidebar está colapsado */
+      }
+      
+      .nav-collapsed .profile-image {
+          height: 30px; /* Ajusta la altura de la imagen de perfil cuando el sidebar está colapsado */
+          width: 30px; /* Ajusta el ancho de la imagen de perfil cuando el sidebar está colapsado */
+      }
+      
+      .nav-collapsed .nav-link {
+          justify-content: center; /* Centra el contenido dentro de .nav-link cuando el sidebar está colapsado */
+      }
+      
+      .nav-collapsed .nav-link svg {
+          margin-right: 0; /* Elimina el margen derecho del SVG dentro de .nav-link cuando el sidebar está colapsado */
+      }
+      
+      /* Ajustes de animación */
+      #sidebar, main, footer {
+          transition: margin-left 0.3s, width 0.3s; /* Transiciones para el margen izquierdo y el ancho del sidebar y el main content */
+      }
+
+      /* Ajusta el contenido principal cuando el sidebar está expandido */
+      #mainContent{
+        transition: margin-left 0.3s;
+        margin-left: 14rem;
+      }
+
+      #footerContent{
+        transition: margin-left 0.3s;
+        margin-left: 0;
+        -webkit-transition: margin-left 0.3s;
+        -moz-transition: margin-left 0.3s;
+        -ms-transition: margin-left 0.3s;
+        -o-transition: margin-left 0.3s;
+}
+
+      /* Ajuste adicional para cuando el sidebar está colapsado */
+      #sidebar.nav-collapsed + #mainContent {
+        margin-left: 10rem; /* Ajusta el margen izquierdo del contenido principal para compensar el ancho del sidebar colapsado */
+      }
+
+      #sidebar.nav-collapsed + #footerContent {
+        margin-left: 15rem;
+      }
+
+      .nav-expanded #mainContent {
+        margin-left: 24rem; /* Ajusta según el ancho del nav */
+    }
+
+            /* Add this custom CSS for handling expanded and collapsed states */
+            .expanded {
+              margin-left: 11rem; /* Adjust as needed for the expanded state */
+          }
+          .nav-collapsed ~ .expanded {
+              margin-left: 3.5rem; /* Adjust as needed for the collapsed state */
+          }

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bienvenido a MasControl</title>
+  <link rel="stylesheet" href="output.css">
+  <link rel="shortcut icon" href="images/casa.png">
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="flex flex-col min-h-screen">
+
+  <!-- Header -->
+  <header class="w-full bg-gray-100">
+    <div class="container mx-auto flex justify-between items-center py-2">
+      <img src="images/logo.png" alt="Company Logo" class="w-24 h-auto">
+      <h1 class="text-3xl eb-garamond-Garamond"><span class="text-blue-600">Mas</span>Control</h1>
+      
+      <div class="block lg:hidden">
+        <button id="nav-toggle" class="focus:outline-none">
+          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <nav id="nav-content" class="hidden lg:flex lg:flex-1 text-lg">
+        <ul class="flex justify-center space-x-10 ml-60">
+          <li><a href="escuelasAs.html" class="text hover:shadow-xl text-black eb-garamond-Garamond">Escuelas asociadas</a></li>
+          <li><a href="preguntasFrecuentes.html" class="text hover:shadow-xl text-black eb-garamond-Garamond">Preguntas Frecuentes</a></li>
+        </ul>
+      </nav>
+      
+      <nav id="nav-content-secondary" class="hidden lg:flex">
+        <ul class="flex space-x-4 justify-center text-lg">
+          <li><a href="register.html" class="text hover:shadow-xl text-black eb-garamond-Garamond">Registrarse</a></li>
+          <li><a href="login.html" class="px-4 py-2 rounded-3xl bg-black text-white hover:bg-blue-600 eb-garamond-Garamond">Iniciar sesión</a></li>
+        </ul>
+      </nav>
+    </div>
+    
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden">
+      <nav class="bg-gray-100 p-4">
+        <ul>
+          <li><a href="escuelasAs.html" class="block py-2">Escuelas asociadas</a></li>
+          <li><a href="preguntasFrecuentes.html" class="block py-2">Preguntas Frecuentes</a></li>
+          <li><a href="register.html" class="block py-2">Registrarse</a></li>
+          <li><a href="login.html" class="block py-2">Iniciar sesión</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Contenedor principal -->
+  <div class="flex flex-1 items-center mx-12 mt-0 pt-0">
+    <!-- Contenido principal -->
+    <main class="flex flex-col justify-center items-center w-1/2 p-4">
+      <div class="text-container mx-auto max-w-xl p-4 text-7xl text-center playfair-display-playfair">El futuro del control</div>
+      <div class="text-container mx-auto max-w-xl p-4 text-2xl text-center text-gray-500 nanum-gothic-coding-regular">Aplicación diseñada para escuelas particulares que necesitan de una buena gestión de datos</div>
+      
+      <div class="flex justify-center mt-8 space-x-4">
+        <a href="https://www.apple.com/mx/app-store/" class="block">
+          <img src="../output/images/appstore.png" class="w-44">
+        </a>
+        <a href="https://play.google.com/store/games?hl=es_MX&pli=1" class="block">
+          <img src="../output/images/google-play.png" class="w-48">
+        </a>
+      </div>
+    </main>
+  
+    <!-- Contenedor del video -->
+    <div class="w-1/2 h-auto p-4">
+      <div class="relative w-full h-full">
+        <video class="w-full h-full object-cover" src="images/Escuela.mp4" autoplay loop muted></video>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white p-4">
+    <div class="container mx-auto px-4">
+      <div class="flex flex-col md:flex-row justify-between items-center">
+        <div class="mb-6 md:mb-0">
+          <h4 class="text-lg font-bold">MasControl</h4>
+          <p class="text-sm">© 2024 Todos los derechos reservados.</p>
+        </div>
+        <div class="flex space-x-4 mb-6 md:mb-0">
+          <a href="#" class="hover:text-gray-400">¿Dónde encontrarnos?</a>
+          <a href="#" class="hover:text-gray-400">Contactos</a>
+          <a href="#" class="hover:text-gray-400">Servicios</a>
+          <a href="#" class="hover:text-gray-400">Reportes</a>
+        </div>
+        <div class="flex space-x-4">
+          <a href="https://www.facebook.com/" class="hover:text-gray-400">
+            <img src="../output/images/facebook.png" class="h-6 w-6">
+          </a>
+          <a href="https://x.com/?lang=es&mx=2" class="hover:text-gray-400">
+            <img src="../output/images/Twitter.png" class="h-6 w-6">
+          </a>
+          <a href="https://www.instagram.com/" class="hover:text-gray-400">
+            <img src="../output/images/Instagram.png" class="h-6 w-6">
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script> <!-- Enlace al archivo JavaScript externo -->
+</body>
+</html>
