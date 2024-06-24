@@ -26,7 +26,7 @@ Create table Agente(
 CREATE TABLE Inmueble (
     ID_Inmueble INT IDENTITY(1,1) PRIMARY KEY,
     tipo_inmueble Varchar(50),
-    tamaño Varchar(50),
+    tamaï¿½o Varchar(50),
     cantidad_cuartos INT NOT NULL,
     cantidad_banos INT NOT NULL,
     sala BIT NOT NULL,
@@ -72,7 +72,9 @@ CREATE TABLE Aval (
 
 CREATE Table Secciones (
 ID_Seccion INT IDENTITY (1,1) PRIMARY KEY,
-Nombre_Seccion
+Nombre_Seccion Varchar(100),
+ID_Agente INT,
+CONSTRAINT FOREIGN KEY (ID_Agente) From Agente(ID_Agente)
 );	
 
 CREATE Table Ventas (
