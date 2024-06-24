@@ -26,7 +26,7 @@ Create table Agente(
 CREATE TABLE Inmueble (
     ID_Inmueble INT IDENTITY(1,1) PRIMARY KEY,
     tipo_inmueble Varchar(50),
-    tamano Varchar(50),
+    tamanio Varchar(50),
     cantidad_cuartos INT NOT NULL,
     cantidad_banos INT NOT NULL,
     sala BIT NOT NULL,
