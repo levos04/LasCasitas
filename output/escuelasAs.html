@@ -9,49 +9,44 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body>
-      <!-- Header -->
-  <header class="w-full bg-gray-100">
-    <div class="container mx-auto flex justify-between items-center py-2">
-        <a href="index.html">
-      <img src="images/logo.png" alt="Company Logo" class="w-24 h-auto">
-        </a>
-        <a href="index.html">
-      <h1 class="text-3xl eb-garamond-Garamond"><span class="text-blue-600">Mas</span>Control</h1>
-        </a>    
-      <div class="block md:hidden">
-        <button id="nav-toggle" class="focus:outline-none">
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-          </svg>
-        </button>
-      </div>
-      
-      <nav id="nav-content" class="hidden md:flex md:flex-1 text-lg">
-        <ul class="flex justify-center space-x-10 ml-60">
-          <li><a href="escuelasAs.html" class="text hover:shadow-xl text-black eb-garamond-Garamond">Consulta nuestras propiedades</a></li>
-          <li><a href="preguntasFrecuentes.html" class="text hover:shadow-xl text-black eb-garamond-Garamond">Consulta nuestros agentes</a></li>
-        </ul>
-      </nav>
-      <nav id="nav-content-secondary" class="hidden lg:flex">
-        <ul class="flex space-x-4 justify-center text-lg">
-          <li><a href="register.html" class="text hover:shadow-xl text-black eb-garamond-Garamond">Login</a></li>
-          <li><a href="login.html" class="px-4 py-2 rounded-3xl bg-black text-white hover:bg-gray-400 eb-garamond-Garamond">Sign up</a></li>
-        </ul>
-      </nav>
+<!-- Header -->
+<header class="w-full bg-white">
+  <div class="container mx-auto flex justify-between items-center py-2">
+    <img src="../src/_a08b794d-f8ef-4ae1-8a05-97ba8f7421a3.jpeg" alt="Company Logo" class="w-24 h-auto mix-blend-mode-multiply">
+    <h1 class="text-3xl eb-garamond-Garamond"><span class="text-gray-500">LAS</span>CASITAS</h1>
+    <div class="block md:hidden">
+      <button id="nav-toggle" class="focus:outline-none">
+        <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
     </div>
-    
-    <!-- Mobile Menu -->
-    <div id="mobile-menu" class="hidden md:hidden">
-      <nav class="bg-gray-100 p-4">
-        <ul>
-          <li><a href="escuelasAs.html" class="block py-2">Escuelas asociadas</a></li>
-          <li><a href="preguntasFrecuentes.html" class="block py-2">Preguntas Frecuentes</a></li>
-          <li><a href="register.html" class="block py-2">Registrarse</a></li>
-          <li><a href="login.html" class="block py-2">Iniciar sesión</a></li>
-        </ul>
-      </nav>
+    <nav id="nav-content" class="hidden lg:flex lg:flex-1 text-lg">
+      <ul class="flex justify-center space-x-10 ml-60">
+        <li><a href="escuelasAs.html" class="text hover:shadow-xl text-black eb-garamond-Garamond">Consulta nuestras propiedades</a></li>
+        <li><a href="preguntasFrecuentes.html" class="text hover:shadow-xl text-black eb-garamond-Garamond">Consulta nuestros agentes</a></li>
+      </ul>
+    </nav>
+    <nav id="nav-content-secondary" class="hidden lg:flex">
+      <ul class="flex space-x-4 justify-center text-lg">
+        <li><a href="register.html" class="text hover:shadow-xl text-black eb-garamond-Garamond">Login</a></li>
+        <li><a href="login.html" class="px-4 py-2 rounded-3xl bg-black text-white hover:bg-gray-400 eb-garamond-Garamond">Sign up</a></li>
+      </ul>
+    </nav>
+  </div>
+  
+  <div class="container mx-auto px-4 py-4 flex justify-between items-center">
+    <div class="flex w-full rounded-lg overflow-hidden shadow-sm">
+      <input id="searchInput" type="text" class="px-4 py-2 w-full bg-white border border-gray-300 rounded-l-md focus:ring-blue-500 focus:border-blue-500" placeholder="Buscar inmuebles">
+      <select id="ubicacionSelect" class="border border-gray-300 rounded-r-md px-4 py-2">
+        <option value="">Todas</option>
+        <option value="centro">Centro</option>
+        <option value="norte">Norte</option>
+        <option value="sur">Sur</option>
+      </select>
     </div>
-  </header>
+  </div>
+</header>
     <main class="container mx-auto mt-4">
         <h2 class="text-4xl text-center mt-8 eb-garamond-Garamond text-blue-600 font-extrabold">Escuelas Asociadas</h2>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-8">
