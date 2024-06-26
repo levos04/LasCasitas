@@ -77,7 +77,6 @@ CREATE TABLE Contrato (
     tiempo Varchar(50),
     tiempo_estimado_venta VARCHAR(50) NOT NULL,
     comision_venta DECIMAL(5, 2) NOT NULL,
-<<<<<<< HEAD
     ID_Aval int,
     CONSTRAINT FK_Contrato_Aval FOREIGN KEY (ID_Aval) REFERENCES Aval(ID_Aval),
     ID_Cliente int,
