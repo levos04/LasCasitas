@@ -87,3 +87,4 @@ CREATE TABLE Contrato (
     KEY fk_contrato_cliente (ID_Cliente),
     CONSTRAINT FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente)
 );
+
