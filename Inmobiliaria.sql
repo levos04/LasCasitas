@@ -85,5 +85,5 @@ CREATE TABLE Contrato (
     CONSTRAINT FOREIGN KEY (ID_Aval) REFERENCES Aval(ID_Aval),
     ID_Cliente INT,
     KEY fk_contrato_cliente (ID_Cliente),
-    CONSTRAINT FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente)  -- Added closing parenthesis
+    CONSTRAINT FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente)
 );
