@@ -8,82 +8,100 @@ drop table CLIENTES
 
 drop table ventas
 
-CREATE DATABASE LasCasitas_Ayala_Alvarez_Narvaez_A
-
-CREATE TABLE Cliente (
-    ID_Cliente INT AUTO_INCREMENT PRIMARY KEY,
-    Nombre_Cliente VARCHAR(50) NOT NULL,
-    Apellido_Cliente VARCHAR(50) NOT NULL,
-    Telefono VARCHAR(10) NOT NULL,
-    Correo VARCHAR(50) NOT NULL,
-    Direccion VARCHAR(50) NOT NULL
+Create table Cliente(
+    ID_Cliente INT identity primary key,
+    Nombre_Cliente Varchar (50) NOT NULL,
+    Apellido_Cliente Varchar (50) NOT NULL,
+    Telefono varchar (10) NOT NULL,
+    Correo Varchar (50) NOT NULL,
+    Direccion varchar (50) NOT NULL
 );
 
-CREATE TABLE Agente (
-  ID_Agente INT AUTO_INCREMENT PRIMARY KEY,
-  Nombre_Agente VARCHAR(50) NOT NULL,
-  Apellido_Agente VARCHAR(50) NOT NULL,
-  Telefono VARCHAR(10) NOT NULL,
-  Correo VARCHAR(50) NOT NULL,
-  Direccion VARCHAR(50) NOT NULL,
-  Area_asignada VARCHAR(30) NOT NULL,
-  Monto_base_salarial DECIMAL(10,2) NOT NULL,
-  Impuestos DECIMAL(10,2) NOT NULL,
-  Comision DECIMAL(10,2) NOT NULL,
-  Bonos DECIMAL(10,2) NOT NULL
+Create table Agente(
+    ID_Agente INT identity primary key,
+    Nombre_Agente varchar (50) NOT NULL,
+    Apellido_Agente varchar (50) NOT NULL, -- Corregido: era Apellido_Cliente antes
+    Telefono varchar (10) NOT NULL,
+    Correo varchar (50) NOT NULL,
+    Direccion varchar (50) NOT NULL,
+    Area_asignada varchar (30) NOT NULL,
+    Monto_base_salarial decimal (10,2) NOT NULL,
+    Impuestos decimal (10,2) NOT NULL,
+    Comision decimal (10,2) NOT NULL,
+    Bonos decimal (10,2) NOT NULL
 );
 
 CREATE TABLE Inmueble (
-  ID_Inmueble INT AUTO_INCREMENT PRIMARY KEY,
-  tipo_inmueble VARCHAR(50) NOT NULL,
-  tamanio VARCHAR(50),
-  cantidad_cuartos INT NOT NULL,
-  cantidad_banos INT NOT NULL,
-  sala BIT NOT NULL,
-  comedor BIT NOT NULL,
-  lavado BIT NOT NULL,
-  otros VARCHAR(200),
-  terreno DECIMAL(10, 2) NOT NULL,
-  construccion DECIMAL(10, 2),
-  antiguedad INT NOT NULL,
-  uso VARCHAR(50),
-  numero_plantas INT,
-  planta_departamento INT,
-  amueblado BIT NOT NULL,
-  estado_conservacion VARCHAR(50),
-  privada BIT NOT NULL,
-  descripcion TEXT,
-  ubicacion VARCHAR(200) NOT NULL,
-  promovido_inmobiliarias VARCHAR(200) NOT NULL,
-  precio_venta DECIMAL(10,2),
-  precio_renta DECIMAL(10,2)
+    ID_Inmueble INT IDENTITY(1,1) PRIMARY KEY,
+    tipo_inmueble Varchar(50) NOT NULL,
+    tamanio Varchar(50),
+    cantidad_cuartos INT NOT NULL,
+    cantidad_banos INT NOT NULL,
+    sala BIT NOT NULL,
+    comedor BIT NOT NULL,
+    lavado BIT NOT NULL,
+    otros VARCHAR(200),
+    terreno DECIMAL(10, 2) NOT NULL,
+    construccion DECIMAL(10, 2),
+    antiguedad INT NOT NULL,
+    uso Varchar(50),
+    numero_plantas INT,
+    planta_departamento INT,
+    amueblado BIT NOT NULL,
+    estado_conservacion Varchar(50),
+    privada BIT NOT NULL,
+    descripcion TEXT,
+    ubicacion VARCHAR(200) NOT NULL,
+    promovido_inmobiliarias VARCHAR(200) NOT NULL, -- Corregido: inmobilirias a inmobiliarias
+    precio_venta decimal (10,2),
+    precio_renta decimal(10,2)
 );
 
 CREATE TABLE Aval (
-  ID_Aval INT AUTO_INCREMENT PRIMARY KEY,
-  Nombre_Aval VARCHAR(100) NOT NULL,
-  Apellido_Aval VARCHAR(100) NOT NULL,
-  Telefono VARCHAR(10) NOT NULL,
-  Correo VARCHAR(50) NOT NULL,
-  Direccion VARCHAR(50) NOT NULL,
-  ID_Cliente INT,
-  KEY fk_aval_cliente (ID_Cliente),
-  CONSTRAINT FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente)
+    ID_Aval INT IDENTITY(1,1) PRIMARY KEY,
+    Nombre_Aval Varchar(100) NOT NULL, 
+    Apellido_Aval Varchar(100) NOT NULL,
+    Telefono Varchar(10) NOT NULL,
+    Correo Varchar (50) NOT NULL,
+    Direccion varchar (50) NOT NULL,
+    ID_Cliente int,
+    CONSTRAINT FK_Aval_Cliente FOREIGN KEY (ID_Cliente) REFERENCES Cliente (ID_Cliente)
 );
 
 CREATE TABLE Contrato (
-    ID_Contrato INT AUTO_INCREMENT PRIMARY KEY,
-    tipo VARCHAR(50) NOT NULL,
+    ID_Contrato INT IDENTITY(1,1) PRIMARY KEY,
+    tipo Varchar(50) NOT NULL,
     monto DECIMAL(10, 2) NOT NULL,
     tipo_identificacion VARCHAR(50) NOT NULL,
     deposito DECIMAL(10, 2) NOT NULL,
-    tiempo VARCHAR(50),
+    tiempo Varchar(50),
     tiempo_estimado_venta VARCHAR(50) NOT NULL,
     comision_venta DECIMAL(5, 2) NOT NULL,
-    ID_Aval INT,
-    KEY fk_contrato_aval (ID_Aval),
-    CONSTRAINT FOREIGN KEY (ID_Aval) REFERENCES Aval(ID_Aval),
-    ID_Cliente INT,
-    KEY fk_contrato_cliente (ID_Cliente),
-    CONSTRAINT FOREIGN KEY (ID_Cliente) REFERENCES Cliente(ID_Cliente)  -- Added closing parenthesis
+    ID_Aval int,
+    CONSTRAINT FK_Contrato_Aval FOREIGN KEY (ID_Aval) REFERENCES Aval(ID_Aval),
+    ID_Cliente int,
+    CONSTRAINT FK_Contrato_Cliente FOREIGN KEY (ID_Cliente) REFERENCES Cliente (ID_Cliente),
+    ID_Agente int,
+    CONSTRAINT FK_Contrato_Agente FOREIGN KEY (ID_Agente) REFERENCES Agente (ID_Agente),
+    ID_Inmueble int,
+    CONSTRAINT FK_Contrato_Inmueble FOREIGN KEY (ID_Inmueble) REFERENCES Inmueble (ID_Inmueble)
+);
+
+CREATE Table Secciones (
+    ID_Seccion INT IDENTITY (1,1) PRIMARY KEY,
+    Nombre_Seccion Varchar(100) NOT NULL,
+    ID_Agente INT,
+    CONSTRAINT FK_Secciones_Agente FOREIGN KEY (ID_Agente) REFERENCES Agente(ID_Agente)
+	CONSTRAINT FK_Secciones_ID_Inmueble FOREIGN KEY (ID_Inmueble) REFERENCES Inmueble(ID_Inmueble)
+); 
+
+CREATE Table Ventas (
+    ID_Venta INT IDENTITY(1,1) PRIMARY KEY,
+    Fecha_Venta DATE NOT NULL,
+    ID_Aval int,
+    comision_venta DECIMAL(5, 2) NOT NULL,
+    ID_Cliente int,
+    ID_Agente int,
+    ID_Inmueble int,
+    Precio int NOT NULL
 );
