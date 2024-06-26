@@ -20,7 +20,7 @@ Create table Cliente(
 Create table Agente(
     ID_Agente INT identity primary key,
     Nombre_Agente varchar (50) NOT NULL,
-    Apellido_Agente varchar (50) NOT NULL, -- Corregido: era Apellido_Cliente antes
+    Apellido_Agente varchar (50) NOT NULL,
     Telefono varchar (10) NOT NULL,
     Correo varchar (50) NOT NULL,
     Direccion varchar (50) NOT NULL,
@@ -52,7 +52,7 @@ CREATE TABLE Inmueble (
     privada BIT NOT NULL,
     descripcion TEXT,
     ubicacion VARCHAR(200) NOT NULL,
-    promovido_inmobiliarias VARCHAR(200) NOT NULL, -- Corregido: inmobilirias a inmobiliarias
+    promovido_inmobiliarias VARCHAR(200) NOT NULL, 
     precio_venta decimal (10,2),
     precio_renta decimal(10,2)
 );
@@ -104,3 +104,67 @@ CREATE Table Ventas (
     ID_Inmueble int,
     Precio int NOT NULL
 );
+
+--Procedimientos almacenados--
+
+--1.Para crear un cliente--
+
+DELIMITER $$
+
+CREATE PROCEDURE CrearCliente(
+    IN p_Nombre_Cliente VARCHAR(50),
+    IN p_Apellido_Cliente VARCHAR(50),
+    IN p_Telefono VARCHAR(10),
+    IN p_Correo VARCHAR(50),
+    IN p_Direccion VARCHAR(50)
+)
+BEGIN
+    INSERT INTO Cliente (Nombre_Cliente, Apellido_Cliente, Telefono, Correo, Direccion)
+    VALUES (p_Nombre_Cliente, p_Apellido_Cliente, p_Telefono, p_Correo, p_Direccion);
+END $$
+
+DELIMITER ;
+
+--2.Para crear un agente--
+
+DELIMITER $$
+
+CREATE PROCEDURE CrearAgente(
+    IN p_Nombre_Agente VARCHAR(50),
+    IN p_Apellido_Agente VARCHAR(50),
+    IN p_Telefono VARCHAR(10),
+    IN p_Correo VARCHAR(50),
+    IN p_Direccion VARCHAR(50),
+    IN p_Area_asignada VARCHAR(30),
+    IN p_Monto_base_salarial DECIMAL(10,2),
+    IN p_Impuestos DECIMAL(10,2),
+    IN p_Comision DECIMAL(10,2),
+    IN p_Bonos DECIMAL(10,2)
+)
+BEGIN
+    INSERT INTO Agente (Nombre_Agente, Apellido_Agente, Telefono, Correo, Direccion, Area_asignada, Monto_base_salarial, Impuestos, Comision, Bonos)
+    VALUES (p_Nombre_Agente, p_Apellido_Agente, p_Telefono, p_Correo, p_Direccion, p_Area_asignada, p_Monto_base_salarial, p_Impuestos, p_Comision, p_Bonos);
+END $$
+
+DELIMITER ;
+
+3.-- Para crear un aval--
+DELIMITER $$
+
+CREATE PROCEDURE CrearAval(
+    IN p_Nombre_Aval VARCHAR(100),
+    IN p_Apellido_Aval VARCHAR(100),
+    IN p_Telefono VARCHAR(10),
+    IN p_Correo VARCHAR(50),
+    IN p_Direccion VARCHAR(50),
+    IN p_ID_Cliente INT
+)
+BEGIN
+    INSERT INTO Aval (Nombre_Aval, Apellido_Aval, Telefono, Correo, Direccion, ID_Cliente)
+    VALUES (p_Nombre_Aval, p_Apellido_Aval, p_Telefono, p_Correo, p_Direccion, p_ID_Cliente);
+END $$
+
+DELIMITER ;
+
+
+
